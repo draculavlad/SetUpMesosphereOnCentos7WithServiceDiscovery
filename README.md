@@ -2,9 +2,9 @@
 set up a dockerized mesosphere cluster with CentOS 7 with service discovery using haproxy following the official document and a little designated operation for centos 7 and haproxy 1.5. I modified the file from the link [https://raw.githubusercontent.com/mesosphere/marathon/master/bin/haproxy-marathon-bridge] to make the configuration work well with haproxy 1.5
 
 ## References
-https://open.mesosphere.com/getting-started/datacenter/install/
-http://open.mesosphere.com/getting-started/service-discovery/
-https://www.youtube.com/watch?v=hZNGST2vIds&feature=youtu.be
+* https://www.youtube.com/watch?v=hZNGST2vIds&feature=youtu.be
+* https://open.mesosphere.com/getting-started/datacenter/install/
+* http://open.mesosphere.com/getting-started/service-discovery/
 
 ## a little setup for my instance 
 yum update -y && yum install bash curl wget tar zip unzip bzip2 telnet net-tools git -y && yum groupinstall "Development Tools" –y
@@ -75,4 +75,9 @@ echo '5mins' > /etc/mesos-slave/executor_registration_timeout
 ## start mesos slave (slave node only)
 systemctl start mesos-slave
 
-
+## test script is referenced to https://www.youtube.com/watch?v=hZNGST2vIds&feature=youtu.be
+wget https://github.com/draculavlad/SetUpMesosphereOnCentos7WithServiceDiscovery/blob/master/launch.sh
+wget nginx-bridge.json
+export marathon_node_ip=$your_marathon_node_ip
+chmod +x launch.sh
+./launch.sh nginx-bridge.json
