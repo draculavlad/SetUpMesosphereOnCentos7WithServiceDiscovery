@@ -4,6 +4,7 @@ set up a dockerized mesosphere cluster with CentOS 7 with service discovery usin
 ## References
 https://open.mesosphere.com/getting-started/datacenter/install/
 http://open.mesosphere.com/getting-started/service-discovery/
+https://www.youtube.com/watch?v=hZNGST2vIds&feature=youtu.be
 
 ## a little setup for my instance 
 yum update -y && yum install bash curl wget tar zip unzip bzip2 telnet net-tools git -y && yum groupinstall "Development Tools" –y
