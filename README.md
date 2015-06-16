@@ -50,6 +50,15 @@ cp /etc/mesos/zk /etc/marathon/conf/master
 cp /etc/marathon/conf/master /etc/marathon/conf/zk
 sed –i 's|mesos|marathon|g' /etc/marathon/conf/zk
 
+## enable mesos master service discovery (master node only)
+wget https://github.com/draculavlad/SetUpMesosphereOnCentos7/blob/master/haproxy-marathon-bridge
+set [file:/etc/haproxy-marathon-bridge/marathons] to a list of your marathon nodes:
+echo "$first_marathon_node_ip:8080" >> /etc/haproxy-marathon-bridge/marathons
+echo "$second_marathon_node_ip:8080" >> /etc/haproxy-marathon-bridge/marathons
+echo "$third_marathon_node_ip:8080" >> /etc/haproxy-marathon-bridge/marathons
+chmod +x haproxy-marathon-bridge
+./haproxy-marathon-bridge install_cronjob
+
 ## start mesos master (master node only)
 systemctl start mesos-master
 
