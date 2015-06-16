@@ -15,6 +15,12 @@ Set up a dockerized mesosphere cluster with CentOS 7 with service discovery usin
     systemctl start ntpd
 ```
 
+## install docker on slave node
+```shell
+    rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    yum install -y docker
+```
+
 ## disable firewalld & selinux if needed
 ```shell
     setenforce Permissive
