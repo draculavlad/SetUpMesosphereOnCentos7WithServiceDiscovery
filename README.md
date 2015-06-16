@@ -1,6 +1,7 @@
 # SetUpMesosphereOnCentos7 with Service Discovery
 Set up a dockerized mesosphere cluster with CentOS 7 with service discovery using haproxy following the official document and a little designated operation for centos 7 and haproxy 1.5. I modified the file from the link [https://raw.githubusercontent.com/mesosphere/marathon/master/bin/haproxy-marathon-bridge] to make the configuration work well with haproxy 1.5
-My mail: 450416583@qq.com, jacobsuyu@gmail.com
+
+* My mail: 450416583@qq.com, jacobsuyu@gmail.com
 
 ## References
 * https://www.youtube.com/watch?v=hZNGST2vIds&feature=youtu.be
