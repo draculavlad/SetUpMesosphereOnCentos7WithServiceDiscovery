@@ -78,7 +78,7 @@ Set up a dockerized mesosphere cluster with CentOS 7 with service discovery usin
 ```
 ## enable mesos master service discovery (master node only)
 ```shell
-    wget https://github.com/draculavlad/SetUpMesosphereOnCentos7/blob/master/haproxy-marathon-bridge
+    wget https://raw.githubusercontent.com/draculavlad/SetUpMesosphereOnCentos7WithServiceDiscovery/master/haproxy-marathon-bridge
 ```
 - set [file:/etc/haproxy-marathon-bridge/marathons] to a list of your marathon nodes:
 ```shell
@@ -111,8 +111,8 @@ Set up a dockerized mesosphere cluster with CentOS 7 with service discovery usin
 ```
 - test script is referenced to https://www.youtube.com/watch?v=hZNGST2vIds&feature=youtu.be
 ```shell
-    wget https://github.com/draculavlad/SetUpMesosphereOnCentos7WithServiceDiscovery/blob/master/launch.sh
-    wget https://github.com/draculavlad/SetUpMesosphereOnCentos7WithServiceDiscovery/blob/master/nginx-bridge.json
+    wget https://raw.githubusercontent.com/draculavlad/SetUpMesosphereOnCentos7WithServiceDiscovery/master/launch.sh
+    wget https://raw.githubusercontent.com/draculavlad/SetUpMesosphereOnCentos7WithServiceDiscovery/master/nginx-bridge.json
     export marathon_node_ip=$your_marathon_node_ip
     chmod +x launch.sh
     ./launch.sh nginx-bridge.json
