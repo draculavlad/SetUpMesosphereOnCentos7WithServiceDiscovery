@@ -1,5 +1,11 @@
 #!/bin/bash
 #let's just say the master ip is 192.169.0.124
+systemctl stop haproxy && \
+systemctl stop zookeeper && \
+systemctl stop marathon && \
+systemctl stop mesos-master && \
+systemctl stop mesos-slave && \
+yum remove -y mesos marathon mesosphere-zookeeper haproxy
 
 export master_node_ip="192.169.0.124"
 export master_node_id="1"
@@ -15,7 +21,7 @@ systemctl stop firewalld && \
 systemctl disable firewalld && \
 yum update -y && yum install -y bash curl wget tar zip unzip bzip2 telnet net-tools git ntp ntpdate && \
 systemctl start ntpd && \
-yum -y install mesos marathon mesosphere-zookeeper haproxy && \
+yum install -y -f mesos marathon mesosphere-zookeeper haproxy  && \
 systemctl start haproxy && \
 systemctl disable mesos-master && \
 systemctl disable mesos-slave && \
