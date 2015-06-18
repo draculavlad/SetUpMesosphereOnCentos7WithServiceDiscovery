@@ -12,11 +12,9 @@ systemctl stop firewalld && \
 systemctl disable firewalld && \
 yum update -y && yum install -y bash curl wget tar zip unzip bzip2 telnet net-tools git ntp ntpdate docker && \
 systemctl start ntpd && \
-yum install -y mesos marathon mesosphere-zookeeper  && \
+yum install -y mesos  && \
 systemctl disable mesos-master && \
 systemctl disable mesos-slave && \
-systemctl disable marathon && \
-systemctl disable zookeeper && \
 echo "setup is ok, begin configuring" && \
 echo "zk://$master_node_ip:2181/mesos" > /etc/mesos/zk && \
 echo "$slave_node_ip" > "/etc/mesos-slave/ip" && \
