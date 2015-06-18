@@ -1,6 +1,6 @@
 #!/bin/bash
 yum install -y net-tools && \
-export master_node_ip="192.168.212.163" && \
+export master_node_ip= && \
 export local_ip=$(ifconfig eno16777736 | grep 'inet ' | awk '{ print $2}') && \
 export slave_node_ip="$local_ip" && \
 echo "local slave ip is: $slave_node_ip" && \
