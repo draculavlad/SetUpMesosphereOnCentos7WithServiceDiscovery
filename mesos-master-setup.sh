@@ -7,14 +7,14 @@
 #systemctl stop mesos-slave && \
 #yum remove -y mesos marathon mesosphere-zookeeper haproxy
 
-export local_ip=$(ifconfig eno16777736 | grep 'inet ' | awk '{ print $2}')
-export master_node_ip="$local_ip"
-export master_node_id="1"
-export marathon_node_ip="$local_ip"
-
 #optional
 #yum groupinstall "Development Tools" –y
 
+yum install -y net-tools && \
+export local_ip=$(ifconfig eno16777736 | grep 'inet ' | awk '{ print $2}') && \
+export master_node_ip="$local_ip" && \
+export master_node_id="1" && \
+export marathon_node_ip="$local_ip" && \
 rpm -Uvh http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm && \
 rpm -Uvh http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/cloudera-cdh-4-0.x86_64.rpm && \
 setenforce Permissive && \
