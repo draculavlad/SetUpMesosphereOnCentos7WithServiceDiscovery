@@ -1,7 +1,7 @@
 #!/bin/bash
-
-export master_node_ip=
-export local_ip=$(ifconfig eno16777736 | grep 'inet ' | awk '{ print $2}')
+yum install -y net-tools && \
+export master_node_ip= && \
+export local_ip=$(ifconfig eno16777736 | grep 'inet ' | awk '{ print $2}') && \
 export slave_node_ip="$local_ip"
 
 rpm -Uvh http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm && \
