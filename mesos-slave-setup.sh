@@ -10,7 +10,7 @@ rpm -Uvh http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/clou
 setenforce Permissive && \
 systemctl stop firewalld && \
 systemctl disable firewalld && \
-yum update -y && yum install -y bash curl wget tar zip unzip bzip2 telnet net-tools git ntp ntpdate && \
+yum update -y && yum install -y bash curl wget tar zip unzip bzip2 telnet net-tools git ntp ntpdate docker && \
 systemctl start ntpd && \
 yum install -y mesos marathon mesosphere-zookeeper  && \
 systemctl disable mesos-master && \
