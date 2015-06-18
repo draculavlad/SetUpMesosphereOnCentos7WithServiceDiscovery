@@ -40,6 +40,7 @@ cp /etc/mesos/zk /etc/marathon/conf/master && \
 cp /etc/marathon/conf/master /etc/marathon/conf/zk && \
 sed -i 's|mesos|marathon|g' /etc/marathon/conf/zk && \
 cd /opt && wget "https://raw.githubusercontent.com/draculavlad/SetUpMesosphereOnCentos7WithServiceDiscovery/master/haproxy-marathon-bridge" && \
+mkdir -p /etc/haproxy-marathon-bridge && \
 echo "$marathon_node_ip:8080" > /etc/haproxy-marathon-bridge/marathons && \
 chmod +x /opt/haproxy-marathon-bridge && \
 cd /opt && ./haproxy-marathon-bridge install_cronjob && \
