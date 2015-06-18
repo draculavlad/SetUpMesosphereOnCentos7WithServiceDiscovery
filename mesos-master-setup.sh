@@ -34,8 +34,8 @@ echo "zk://$master_node_ip:2181/mesos" > /etc/mesos/zk && \
 systemctl start zookeeper && \
 mkdir -p /etc/marathon/conf && \
 echo "1" > "/etc/mesos-master/quorum" && \
-echo "$master_node_ip" > "/etc/mesos-master/ip" && \
-echo "$master_node_ip" > "/etc/mesos-master/hostname" && \
+echo "$master_node_ip" > /etc/mesos-master/ip && \
+echo "$master_node_ip" > /etc/mesos-master/hostname && \
 cp /etc/mesos/zk /etc/marathon/conf/master && \
 cp /etc/marathon/conf/master /etc/marathon/conf/zk && \
 sed -i 's|mesos|marathon|g' /etc/marathon/conf/zk && \
