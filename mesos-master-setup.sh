@@ -1,11 +1,12 @@
 #!/bin/bash
 #let's just say the master ip is 192.169.0.124
-systemctl stop haproxy && \
-systemctl stop zookeeper && \
-systemctl stop marathon && \
-systemctl stop mesos-master && \
-systemctl stop mesos-slave && \
-yum remove -y mesos marathon mesosphere-zookeeper haproxy
+#clean
+#systemctl stop haproxy && \
+#systemctl stop zookeeper && \
+#systemctl stop marathon && \
+#systemctl stop mesos-master && \
+#systemctl stop mesos-slave && \
+#yum remove -y mesos marathon mesosphere-zookeeper haproxy
 
 export master_node_ip="192.169.0.124"
 export master_node_id="1"
