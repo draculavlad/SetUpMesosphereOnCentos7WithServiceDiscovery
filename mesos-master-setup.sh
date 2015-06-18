@@ -1,5 +1,4 @@
 #!/bin/bash
-#let's just say the master ip is 192.169.0.124
 #clean
 #systemctl stop haproxy && \
 #systemctl stop zookeeper && \
@@ -8,9 +7,10 @@
 #systemctl stop mesos-slave && \
 #yum remove -y mesos marathon mesosphere-zookeeper haproxy
 
-export master_node_ip="192.169.0.124"
+export local_ip=$(ifconfig eno16777736 | grep 'inet ' | awk '{ print $2}')
+export master_node_ip="$local_ip"
 export master_node_id="1"
-export marathon_node_ip="192.168.0.124"
+export marathon_node_ip="$local_ip"
 
 #optional
 #yum groupinstall "Development Tools" –y
