@@ -17,8 +17,8 @@ systemctl disable mesos-master && \
 systemctl disable mesos-slave && \
 echo "setup is ok, begin configuring" && \
 echo "zk://$master_node_ip:2181/mesos" > /etc/mesos/zk && \
-echo "$slave_node_ip" > "/etc/mesos-slave/ip" && \
-echo "$slave_node_ip" > "/etc/mesos-slave/hostname" && \
+echo "$slave_node_ip" > /etc/mesos-slave/ip && \
+echo "$slave_node_ip" > /etc/mesos-slave/hostname && \
 echo 'docker,mesos' > /etc/mesos-slave/containerizers && \
 echo '5mins' > /etc/mesos-slave/executor_registration_timeout && \
 systemctl start mesos-slave && \
