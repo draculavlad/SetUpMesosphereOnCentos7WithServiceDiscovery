@@ -29,7 +29,7 @@ systemctl disable marathon && \
 systemctl disable zookeeper && \
 echo "$master_node_id" > /var/lib/zookeeper/myid && \
 echo "server.$master_node_id=$master_node_ip:2888:3888" >> /etc/zookeeper/conf/zoo.cfg &&\
-echo "zk://$master_node_id/mesos" > /etc/mesos/zk && \
+echo "zk://$master_node_ip:2181/mesos" > /etc/mesos/zk && \
 systemctl start zookeeper && \
 mkdir -p /etc/marathon/conf && \
 echo "1" > "/etc/mesos-master/quorum" && \
