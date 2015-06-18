@@ -21,7 +21,7 @@ systemctl stop firewalld && \
 systemctl disable firewalld && \
 yum update -y && yum install -y bash curl wget tar zip unzip bzip2 telnet net-tools git ntp ntpdate && \
 systemctl start ntpd && \
-yum install -y -f mesos marathon mesosphere-zookeeper haproxy  && \
+yum install -y mesos marathon mesosphere-zookeeper haproxy  && \
 systemctl start haproxy && \
 systemctl disable mesos-master && \
 systemctl disable mesos-slave && \
