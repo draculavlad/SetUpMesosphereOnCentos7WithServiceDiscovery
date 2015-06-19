@@ -1,5 +1,9 @@
 #!/bin/bash
-yum install -y net-tools && \
+setenforce Permissive && \
+systemctl stop firewalld && \
+systemctl disable firewalld && \
+yum update -y && yum install -y bash curl wget tar zip unzip bzip2 telnet net-tools git ntp ntpdate docker && \
+systemctl start ntpd && \
 export master_node_ip= && \
 export local_ip=$(ifconfig eno16777736 | grep 'inet ' | awk '{ print $2}') && \
 export slave_node_ip="$local_ip" && \
@@ -7,11 +11,6 @@ echo "local slave ip is: $slave_node_ip" && \
 echo "remote master ip is: $master_node_ip" && \
 rpm -Uvh http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm && \
 rpm -Uvh http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/cloudera-cdh-4-0.x86_64.rpm && \
-setenforce Permissive && \
-systemctl stop firewalld && \
-systemctl disable firewalld && \
-yum update -y && yum install -y bash curl wget tar zip unzip bzip2 telnet net-tools git ntp ntpdate docker && \
-systemctl start ntpd && \
 yum install -y mesos  && \
 systemctl disable mesos-master && \
 systemctl disable mesos-slave && \
